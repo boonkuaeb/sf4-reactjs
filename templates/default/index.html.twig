@@ -3,9 +3,11 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12 js-rep-log-table">
-            <h2>
-                Hello World
-            </h2>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <h1>Hi {{ app.user.firstName }} ,</h1>
+            {% else %}
+                <h1>Please login  <a href="{{ path('fos_user_security_login') }}">click here</a></h1>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
