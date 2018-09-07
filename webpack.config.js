@@ -28,6 +28,7 @@ Encore
 
     .cleanupOutputBeforeBuild()
     .enableVersioning()
+    .enableReactPreset()
 
 ;
 

@@ -5,6 +5,8 @@
         <div class="col-md-12 js-rep-log-table">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <h1>Hi {{ app.user.firstName }} ,</h1>
+                <hr>
+                <div id="react-app"></div>
             {% else %}
                 <h1>Please login  <a href="{{ path('fos_user_security_login') }}">click here</a></h1>
             {% endif %}
