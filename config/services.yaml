@@ -32,3 +32,17 @@ services:
     App\Form\Type\RegistrationType:
         arguments:
             $class: '%fos_user.model.user.class%'
+
+    app.user_login_route_listener:
+        class: App\EventListener\UserLoginRouteListener
+        arguments:
+            - '@security.token_storage'
+            - '@router'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    app.redirect_after_registration_subscriber:
+        class: App\EventListener\RedirectAfterRegistrationSubscriber
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }

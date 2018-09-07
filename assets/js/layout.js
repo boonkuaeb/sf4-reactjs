@@ -8,8 +8,7 @@ import 'font-awesome/css/font-awesome.css';
 
 import '../css/main.scss';
 
-
-global.$ = $; // use for upgrade to webpack
+global.$ = $; // use for upgrade from native js  to webpack
 
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
