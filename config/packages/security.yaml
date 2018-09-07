@@ -1,13 +1,23 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        fos_userbundle:
+            id: fos_user.user_provider.username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+
+            logout: ~
+
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+
+
+            remember_me:
+                secret: '%kernel.secret%'
 
             # activate different ways to authenticate
 
@@ -22,3 +32,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+
+    encoders:
+        AppBundle\Entity\User: bcrypt
