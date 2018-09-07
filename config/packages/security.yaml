@@ -34,4 +34,4 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
 
     encoders:
-        AppBundle\Entity\User: bcrypt
+        App\Entity\User: bcrypt

@@ -1,0 +1,31 @@
+{% extends '@FOSUser/layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/login.css') }}"/>
+{% endblock %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <div class="wrapper col-md-7">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register '}}) }}
+
+            <h1>Register Demo!</h1>
+
+            <hr class="colorgraph"/>
+
+            <br/>
+
+            {{ form_widget(form) }}
+
+            <div>
+                <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary"/>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+
+    </div>
+{% endblock fos_user_content %}
