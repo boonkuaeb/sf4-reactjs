@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Find Something to Lift!{% endblock %}</title>
+    <title>{% block title %}Symfony4 vs ReactJS!{% endblock %}</title>
 
     {% block stylesheets %}
         <link href="{{ asset('build/layout.css') }}" rel="stylesheet"/>
@@ -32,7 +32,7 @@
                href="{{ path('homepage') }}"
                data-toggle="tooltip"
                data-placement="bottom"
-               title="DO IT! LIFT STUFF!!!">Demo</a>
+               title="DEMO!!!">Symfony 4 and ReactJS</a>
         </div>
         <div class="navbar-collapse collapse">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -48,8 +48,8 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ path('homepage') }}">
-                                    Home
                                     <span class="mini-dumbbell"></span>
+                                    Home
                                 </a>
                             </li>
                             <li>
