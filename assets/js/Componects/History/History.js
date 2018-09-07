@@ -41,7 +41,6 @@ class History extends Component {
         const time = moment().subtract(daysCount, 'days').unix();
         axios.all([this.getETHPrices(time), this.getBTCPrices(time), this.getLTCPrices(time)])
             .then(axios.spread((eth, btc, ltc) => {
-                console.log(eth);
                 /** Have clear names for your variables, what is f supposed to be? **/
                 let f = {
                     date: moment.unix(time).format("MMMM Do YYYY"),
@@ -90,7 +89,6 @@ class History extends Component {
          * version of it ! :-)
          */
         const {todayprice, yesterdayprice, twodaysprice, threedaysprice, fourdaysprice} = this.state;
-        console.log(this.state);
         return (
             <div className="history--section container">
                 <h2>History (Past 5 days)</h2>
