@@ -15,21 +15,23 @@ Encore
     .addEntry('login', './assets/js/login.js')
     .addEntry('register', './assets/js/register.js')
 
-    .enableBuildNotifications()
+    .addEntry('react-app', './assets/js/react-app.js')
 
+
+    .enableBuildNotifications()
+    // fixes modules that expect jQuery to be global
     .autoProvidejQuery()
 
     .addPlugin(new CopyWebpackPlugin([
-        {from: './assets/static', to: 'static'}
+        // copies to {output}/static
+        { from: './assets/static', to: 'static' }
     ]))
 
     .enableSassLoader()
     .enableSourceMaps(!Encore.isProduction())
-
     .cleanupOutputBeforeBuild()
-    .enableVersioning()
+    .enableVersioning(Encore.isProduction())
     .enableReactPreset()
-
 ;
 
 // export the final configuration

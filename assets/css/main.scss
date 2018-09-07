@@ -46,7 +46,7 @@ footer.footer {
 }
 
 .leaderboard-table {
-    border: 2px solid #000;
+    border: 2px solid #fff;
 }
 
 .leaderboard-table-striped>tbody>tr:nth-of-type(odd) {
@@ -58,13 +58,13 @@ footer.footer {
 }
 
 .leaderboard-table > thead > tr > th {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #fff;
     background-color: #145ACC;
     color: #fff;
 }
 
 .leaderboard-table > tbody > tr > td {
-    border-top: 1px solid #000;
+    border-top: 1px solid #fff;
 }
 
 .leaderboard-table-hover>tbody>tr:hover {
@@ -73,4 +73,32 @@ footer.footer {
 
 .cat-count {
     font-size: .9em;
+}
+
+.topheader {
+    background-color: #174c80;
+}
+.navbar {
+    background-color: #174c80;
+}
+.results--section {
+    padding: 20px 0px;
+    margin-top: 40px;
+}
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #305f80;
 }
