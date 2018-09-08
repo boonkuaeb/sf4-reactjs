@@ -21,8 +21,16 @@ on how you installed Composer.
 
 **Setup the Database**
 
-Open `.env` and make sure the `DATABASE_URL` setting is
-correct for your system.
+Open your terminal, go to the source code directory and run `mv` command to create `.env` file.
+```$xslt
+mv .env.dist .env
+``` 
+
+Open `.env` Also, make sure the `DATABASE_URL` setting is
+correct for your system. For example, on my laptop, I updated the `.env` file like this.
+```$xslt
+DATABASE_URL=mysql://root:mysecret@127.0.0.1:6667/sf4_reactjs_db
+```
 
 Then, create the database and the schema!
 
