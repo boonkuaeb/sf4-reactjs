@@ -13,8 +13,9 @@ Make sure you have [Composer installed](https://getcomposer.org/download/)
 and then run:
 
 ```
-composer install
+php -d memory_limit=-1 composer.phar
 ```
+
 
 You may alternatively need to run `php composer.phar install`, depending
 on how you installed Composer.
