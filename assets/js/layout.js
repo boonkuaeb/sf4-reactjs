@@ -1,12 +1,10 @@
 'use strict';
 
-
 import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap'
+import 'bulma/css/bulma.min.css';
 import 'font-awesome/css/font-awesome.css';
-
-import '../css/main.scss';
+import '../css/layout.scss';
 
 global.$ = $; // use for upgrade from native js  to webpack
 

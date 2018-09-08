@@ -32,16 +32,16 @@ class Today extends Component {
 
             <div className="today--section container">
                 <h2>Current Price</h2>
-                <div className="row">
-                <div className="col-md-4">
+                <div className="columns today--section__box">
+                    <div className="column btc--section">
                         <h5>${this.state.btcprice}</h5>
                         <p>1 BTC</p>
                     </div>
-                    <div className="col-md-4">
+                    <div className="column eth--section">
                         <h5>${this.state.ethprice}</h5>
                         <p>1 ETH</p>
                     </div>
-                    <div className="col-md-4">
+                    <div className="column ltc--section">
                         <h5>${this.state.ltcprice}</h5>
                         <p>1 LTC</p>
                     </div>

@@ -5,13 +5,13 @@ export const SectionBox = ({price}) =>
     <div className="history--section__box__inner">
         <h4>{price.date}</h4>
         <div className="columns">
-            <div className="col-md-4">
+            <div className="column">
                 <p>1 BTC = ${price.btc}</p>
             </div>
-            <div className="col-md-4">
+            <div className="column">
                 <p>1 ETH = ${price.eth}</p>
             </div>
-            <div className="col-md-4">
+            <div className="column">
                 <p>1 LTC = ${price.ltc}</p>
             </div>
         </div>

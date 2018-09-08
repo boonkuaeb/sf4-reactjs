@@ -1,23 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('build/react-app.js') }}"></script>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <script src="{{ asset('build/react-app.js') }}"></script>
+    {% endif %}
 {% endblock %}
 
-{% block stylesheets  %}
-    <link href="{{ asset('build/react-app.css') }}" rel="stylesheet"/>
+{% block stylesheets %}
     {{ parent() }}
-
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <link href="{{ asset('build/react-app.css') }}" rel="stylesheet"/>
+    {% endif %}
 {% endblock %}
 
 {% block body %}
     <div class="row">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <h1>Hi {{ app.user.firstName }} ,</h1>
-                <hr>
-                <div id="react-app"></div>
-            {% else %}
-                <h1>Please login  <a href="{{ path('fos_user_security_login') }}">click here</a></h1>
-            {% endif %}
+        <section class="results--section">
+            <div class="container">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <h1>Hi {{ app.user.firstName }} , This is a realtime price information about<br/> BTC, ETH and LTC.
+                    </h1>
+                    <hr>
+                    <div id="react-app"></div>
+                {% else %}
+                    <h1>Please login <a href="{{ path('fos_user_security_login') }}">click here</a></h1>
+                {% endif %}
+            </div>
+        </section>
     </div>
 {% endblock %}

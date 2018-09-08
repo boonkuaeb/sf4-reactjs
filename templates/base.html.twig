@@ -1,113 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
     <title>{% block title %}Symfony4 vs ReactJS!{% endblock %}</title>
-
     {% block stylesheets %}
+        <link rel="manifest" href="{{ asset('build/manifest.json') }}">
         <link href="{{ asset('build/layout.css') }}" rel="stylesheet"/>
     {% endblock %}
-
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-
 <body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<div class="">
+    <div class="topheader">
+        <header class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <span class="navbar-item">
+                        <a class="navbar-item navbar-home" href="{{ path('homepage') }}">Price Info</a>
+                    </span>
+                </div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div class="navbar-end">
+                    <a class="navbar-item" href="{{ path('fos_user_security_logout') }}" rel="noopener noreferrer">Logout</a>
+                </div>
+                {% else %}
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="{{ path('fos_user_registration_register') }}" rel="noopener noreferrer">Register</a>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle"
-                    data-toggle="collapse"
-                    data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand"
-               href="{{ path('homepage') }}"
-               data-toggle="tooltip"
-               data-placement="bottom"
-               title="DEMO!!!">Symfony 4 and ReactJS</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="drop-down" data-toggle="tooltip" data-placement="left"
-                        title="Welcome back {{ app.user.firstName }}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">
-                            <span class="fa fa-user"></span>
-                            <strong>{{ app.user.username }}</strong>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{ path('homepage') }}">
-                                    <span class="mini-dumbbell"></span>
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('fos_user_security_logout') }}">
-                                    <span class="fa fa-sign-out"></span>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            {% else %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{{ path('fos_user_security_login') }}">
-                            Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('fos_user_registration_register') }}">
-                            Register
-                        </a>
-                    </li>
-                </ul>
-            {% endif %}
-        </div>
-        <!--/.navbar-collapse -->
+                        <a class="navbar-item" href="{{ path('fos_user_security_login') }}" rel="noopener noreferrer">Login</a>
+                    </div>
+
+                {% endif %}
+
+            </nav>
+        </header>
     </div>
-</div>
-
-{% block hero %}{% endblock %}
-
-<div class="container main-content">
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }} alert alert-info">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-
     {% block body %}{% endblock %}
-
-    <footer class="footer">
-        <hr/>
-
-        <p>&copy; Demo {{ ''|date('Y') }}</p>
-    </footer>
 </div>
-<!-- /container -->
-
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
     <script src="{{ asset('build/manifest.js') }}"></script>
     <script src="{{ asset('build/layout.js') }}"></script>
 {% endblock %}
-
 </body>
 </html>
