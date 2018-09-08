@@ -67,3 +67,8 @@ password:123456
 If you are using PhpStorm you may install and enable
 the [Symfony Plugin](https://plugins.jetbrains.com/idea/plugin/7219-symfony-plugin)
 via the preferences which provides more auto-completion for Symfony projects.  
+
+**Special Thanks**
+
+I very thank  Yomi for this [Build a real-time PWA with React - Medium Post](https://medium.com/front-end-hacking/build-a-realtime-pwa-with-react-99e7b0fd3270).
+That guided me to create this repository.
