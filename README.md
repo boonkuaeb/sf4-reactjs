@@ -13,12 +13,8 @@ Make sure you have [Composer installed](https://getcomposer.org/download/)
 and then run:
 
 ```
-php -d memory_limit=-1 composer.phar
+php -d memory_limit=-1 composer.phar install
 ```
-
-
-You may alternatively need to run `php composer.phar install`, depending
-on how you installed Composer.
 
 **Setup the Database**
 
