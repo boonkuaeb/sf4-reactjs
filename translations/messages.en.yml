@@ -6,7 +6,6 @@ firstName: false
 common_register: Register
 common_login: Login
 common_logout: Logout
-common_current_price: Current Price
-common_history_price: History Price
+common_current_price: 'Current Price'
+common_history_price: 'History Price'
 common_history_price_day: 'Past {part_days} days'
-
