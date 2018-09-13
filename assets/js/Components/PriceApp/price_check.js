@@ -1,10 +1,17 @@
 "use strict";
+
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
-import Today from './Components/Today/Today'
-import History from './Components/History/History'
+import Today from './Today/Today'
+import History from './History/History'
+import $ from 'jquery';
+
 
 import T from 'i18n-react';
+
+let language = $('.userLanguage').attr('title');
+T.setTexts(require(`json-loader!yaml-loader!./../../../../translations/messages.${language}.yml`));
+
 
 class App extends Component {
     render() {

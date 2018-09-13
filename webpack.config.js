@@ -16,9 +16,8 @@ Encore
     .createSharedEntry('layout', './assets/js/layout.js')
     .addEntry('login', './assets/js/login.js')
     .addEntry('register', './assets/js/register.js')
-    .addEntry('rep_log', './assets/js/rep_log.js')
-
-    .addEntry('react-app', './assets/js/react-app.js')
+    .addEntry('react_price_check', './assets/js/Components/PriceApp/price_check.js')
+    .addEntry('rep_log', './assets/js/Components/RepLogApp/rep_log.js')
 
 
     .enableBuildNotifications()
@@ -36,12 +35,13 @@ Encore
         })
     )
     .addLoader(
-            {
-                test: /\.yaml$/,
-                include: __dirname + '/translations',
-                loader: 'yaml',
-            }
+        {
+            test: /\.yaml$/,
+            include: __dirname + '/translations',
+            loader: 'yaml',
+        }
     )
+
 
     .enableSassLoader()
     .enableSourceMaps(!Encore.isProduction())

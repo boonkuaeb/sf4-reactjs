@@ -27,6 +27,11 @@ class RepLogApp {
             this.handleRowClick.bind(this)
         );
         this.$wrapper.on(
+            'click',
+            '.test-click',
+            this.handleBtnClick.bind(this)
+        );
+        this.$wrapper.on(
             'submit',
             RepLogApp._selectors.newRepForm,
             this.handleNewFormSubmit.bind(this)
@@ -101,6 +106,10 @@ class RepLogApp {
         })
     }
 
+
+    handleBtnClick() {
+        console.log('row clicked!');
+    }
     handleRowClick() {
         console.log('row clicked!');
     }
@@ -116,10 +125,10 @@ class RepLogApp {
         }
 
         this._saveRepLog(formData)
-        .then((data) => {
-            this._clearForm();
-            this._addRow(data);
-        }).catch((errorData) => {
+            .then((data) => {
+                this._clearForm();
+                this._addRow(data);
+            }).catch((errorData) => {
             this._mapErrorsToForm(errorData.errors);
         });
     }
@@ -133,7 +142,6 @@ class RepLogApp {
                 method: 'POST',
                 data: JSON.stringify(data)
             }).then((data, textStatus, jqXHR) => {
-                console.log(data);
                 $.ajax({
                     url: jqXHR.getResponseHeader('Location')
                 }).then((data) => {
@@ -160,7 +168,7 @@ class RepLogApp {
                 return;
             }
 
-            const $error = $('<span class="js-field-error help-block help is-danger"></span>');
+            const $error = $('<span class="js-field-error help-block is-danger"></span>');
             $error.html(errorData[fieldName]);
             $wrapper.append($error);
             $wrapper.addClass('has-error');
@@ -209,7 +217,8 @@ const rowTemplate = (repLog) => `
         <span class="fa fa-trash"></span>
     </a>
 </td>
-</tr>
-`;
+</tr>`;
 
 export default RepLogApp;
+
+

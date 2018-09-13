@@ -7,7 +7,7 @@
                 Lift History
             </h2>
 
-            <div class="content js-rep-log-table">
+            <div class="content">
                 <table class="table table-striped">
                     <thead class="thead-dark">
                     <tr>
@@ -44,16 +44,17 @@
             </div>
         </div>
     </div>
+
+    </div>
+
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.11.0/dist/sweetalert2.min.css"/>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-
     <script src="{{ asset('build/rep_log.js') }}"></script>
 {% endblock %}

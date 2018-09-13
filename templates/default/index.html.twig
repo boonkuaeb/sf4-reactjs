@@ -3,14 +3,14 @@
 {% block javascripts %}
     {{ parent() }}
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <script src="{{ asset('build/react-app.js') }}"></script>
+        <script src="{{ asset('build/react_price_check.js') }}"></script>
     {% endif %}
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <link href="{{ asset('build/react-app.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/react_price_check.css') }}" rel="stylesheet"/>
     {% endif %}
 {% endblock %}
 
