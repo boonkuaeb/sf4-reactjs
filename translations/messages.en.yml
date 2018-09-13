@@ -9,3 +9,10 @@ common_logout: Logout
 common_current_price: 'Current Price'
 common_history_price: 'History Price'
 common_history_price_day: 'Past {part_days} days'
+liftable_thing.cat: Cat
+liftable_thing.fat_cat: 'Big Fat Cat'
+liftable_thing.laptop: 'My Laptop'
+liftable_thing.coffee_cup: 'Coffee Cup'
+my_lift: Lift
+common_switch_lang: 'Switch Language'
+check_price: 'Check Currency Price'

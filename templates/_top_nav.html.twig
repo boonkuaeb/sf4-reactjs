@@ -1,0 +1,87 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand"
+               href="{{ path('homepage') }}"
+               data-toggle="tooltip"
+               data-placement="bottom"
+               title="Price Info!!!">
+                <i class="fa fa-camera-retro fa-1x"></i>
+                Price Info</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="drop-down"  data-placement="left"
+                    title="{{ 'common_switch_lang'|trans }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-language"></span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="{% if app.request.getLocale() == 'en' %}userLanguage{% endif %}" title="en"
+                               href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                <span class="flag-icon flag-icon-eg"></span>
+                                English
+                            </a>
+                        </li>
+                        <li>
+                            <a class="{% if app.request.getLocale() == 'th' %}userLanguage{% endif %}" title="th"
+                               href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'th'})) }}">
+                                <span class="flag-icon flag-icon-th"></span>
+                                ภาษาไทย
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ path('homepage') }}">
+                            <span class="fa fa-exchange"></span>
+                            {{ 'check_price'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('lift') }}">
+                            <span class="fa fa-heartbeat"></span>
+                            {{ 'my_lift'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <span class="fa fa-sign-out"></span>
+                            {{ 'common_logout'|trans }}
+                        </a>
+                    </li>
+                </ul>
+
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ path('fos_user_registration_register') }}">
+                            <span class="fa fa-registered"></span>
+                            {{ 'common_register'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <span class="fa fa-sign-in"></span>
+                            {{ 'common_login'|trans }}
+                        </a>
+                    </li>
+                </ul>
+            {% endif %}
+
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>

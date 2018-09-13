@@ -32,18 +32,18 @@ class Today extends Component {
     render() {
         return (
 
-            <div className="today--section container">
+            <div className="today--section">
                 <h2>{T.translate("common_current_price")}</h2>
-                <div className="columns today--section__box">
-                    <div className="column btc--section">
+                <div className="columns today--section__box row">
+                    <div className="col-md-4 btc--section row">
                         <h5>${this.state.btcprice}</h5>
                         <p>1 BTC</p>
                     </div>
-                    <div className="column eth--section">
+                    <div className="col-md-4 eth--section row">
                         <h5>${this.state.ethprice}</h5>
                         <p>1 ETH</p>
                     </div>
-                    <div className="column ltc--section">
+                    <div className="col-md-4 ltc--section row">
                         <h5>${this.state.ltcprice}</h5>
                         <p>1 LTC</p>
                     </div>

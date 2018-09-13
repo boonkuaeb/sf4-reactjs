@@ -1,51 +1,41 @@
-<!doctype html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Symfony4 vs ReactJS!{% endblock %}</title>
     {% block stylesheets %}
         <link rel="manifest" href="{{ asset('build/manifest.json') }}">
         <link href="{{ asset('build/layout.css') }}" rel="stylesheet"/>
     {% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
 <noscript>
     You need to enable JavaScript to run this app.
 </noscript>
-<div class="">
-    <div class="topheader">
-        <header class="container">
-            <nav class="navbar">
-                <div class="navbar-brand">
-                    <span class="navbar-item">
-                        <a class="navbar-item navbar-home" href="{{ path('homepage') }}">Price Info</a>
-                    </span>
-                </div>
-                <div class="navbar-end">
-                    <ul class="lang-menu">
-                        <li><a {% if app.request.getLocale() == 'en' %} class="userLanguage" {% endif %} alt="en" href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>
-                        <li><a {% if app.request.getLocale() == 'th' %} class="userLanguage" {% endif %} alt="th" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'th'})) }}">ไทย</a></li>
-                    </ul>
-                </div>
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div class="navbar-end">
-                    <a class="navbar-item" href="{{ path('fos_user_security_logout') }}" rel="noopener noreferrer">{{ 'common_logout'|trans }}</a>
-                </div>
-                {% else %}
-                    <div class="navbar-end">
-                        <a class="navbar-item" href="{{ path('fos_user_registration_register') }}" rel="noopener noreferrer">{{ 'common_register'|trans }}</a>
+{{ include('_top_nav.html.twig') }}
 
-                        <a class="navbar-item" href="{{ path('fos_user_security_login') }}" rel="noopener noreferrer">{{ 'common_login'|trans }}</a>
-                    </div>
+{% block hero %}{% endblock %}
+<div class="container main-content">
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }} alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 
-                {% endif %}
-
-            </nav>
-        </header>
-    </div>
     {% block body %}{% endblock %}
+
+    <footer class="footer">
+        <hr/>
+    </footer>
+</div>
+<!-- /container -->
 </div>
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>

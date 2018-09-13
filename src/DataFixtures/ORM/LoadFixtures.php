@@ -5,7 +5,6 @@ namespace App\DataFixtures\ORM;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Nelmio\Alice\Loader\NativeLoader;
 
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 

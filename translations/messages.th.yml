@@ -6,7 +6,13 @@ common_login: เข้าสู่ระบบ
 'First name': ชื่อ
 'Last name': นามสกุล
 common_logout: ออกจากระบบ
-common_current_price: ราคาปัญจุบัน
-common_history_price: ราคาย้อนหลัง
+common_current_price: ราคาปัจจุบัน
+common_history_price: ราคาย้อนหลังเระ
 common_history_price_day: '{part_days} วัน'
-
+liftable_thing.cat: Cat
+liftable_thing.fat_cat: 'Big Fat Cat'
+liftable_thing.laptop: 'My Laptop'
+liftable_thing.coffee_cup: 'Coffee Cup'
+my_lift: กิจกรรม
+common_switch_lang: เปลื่ยนภาษา
+check_price: ตรวจสอบค่าเงิน

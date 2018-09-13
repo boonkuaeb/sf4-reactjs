@@ -16,6 +16,7 @@ Encore
     .createSharedEntry('layout', './assets/js/layout.js')
     .addEntry('login', './assets/js/login.js')
     .addEntry('register', './assets/js/register.js')
+    .addEntry('rep_log', './assets/js/rep_log.js')
 
     .addEntry('react-app', './assets/js/react-app.js')
 

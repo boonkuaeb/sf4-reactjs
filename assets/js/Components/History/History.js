@@ -1,7 +1,9 @@
+"use strict";
+
 import React, {Component} from 'react';
-import './History.css'
-import axios from 'axios'
-import moment from 'moment'
+import './History.css';
+import axios from 'axios';
+import moment from 'moment';
 import {SectionBox} from "./SectionBox";
 import T from 'i18n-react';
 
@@ -93,7 +95,7 @@ class History extends Component {
         return (
             <div className="history--section container">
                 <h2>{T.translate("common_history_price")} ({T.translate("common_history_price_day", { part_days: "5" })})</h2>
-                <div className="history--section__box">
+                <div className="history--section__box row">
                     <SectionBox price={todayprice}/>
                     <SectionBox price={yesterdayprice}/>
                     <SectionBox price={twodaysprice}/>
