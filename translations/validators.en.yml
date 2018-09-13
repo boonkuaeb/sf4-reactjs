@@ -1,0 +1,11 @@
+fos_user.username.already_used: false
+fos_user.email.already_used: false
+fos_user.username.blank: false
+fos_user.username.long: false
+fos_user.username.short: false
+fos_user.email.blank: false
+fos_user.email.long: false
+fos_user.email.short: false
+fos_user.email.invalid: false
+fos_user.password.blank: false
+fos_user.password.short: false

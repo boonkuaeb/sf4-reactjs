@@ -3,6 +3,7 @@ import './History.css'
 import axios from 'axios'
 import moment from 'moment'
 import {SectionBox} from "./SectionBox";
+import T from 'i18n-react';
 
 class History extends Component {
     constructor() {
@@ -91,7 +92,7 @@ class History extends Component {
         const {todayprice, yesterdayprice, twodaysprice, threedaysprice, fourdaysprice} = this.state;
         return (
             <div className="history--section container">
-                <h2>History (Past 5 days)</h2>
+                <h2>{T.translate("common_history_price")} ({T.translate("common_history_price_day", { part_days: "5" })})</h2>
                 <div className="history--section__box">
                     <SectionBox price={todayprice}/>
                     <SectionBox price={yesterdayprice}/>

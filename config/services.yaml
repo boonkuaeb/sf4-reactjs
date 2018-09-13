@@ -46,3 +46,10 @@ services:
         autowire: true
         tags:
             - { name: kernel.event_subscriber }
+
+    app.locale_subscriber:
+        class: App\EventListener\LocaleSubscriber
+        autowire: true
+        arguments: ['%kernel.default_locale%']
+        tags:
+            - { name: kernel.event_subscriber }

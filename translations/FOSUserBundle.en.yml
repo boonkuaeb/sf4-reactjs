@@ -1,0 +1,7 @@
+registration.header: 'Registation Form'
+registration.submit: Register
+security.login.username: 'User Name'
+security.login.password: Password
+form.email: Email
+form.password: Password
+form.password_confirmation: 'Confirm Password'

@@ -1,0 +1,7 @@
+registration.submit: สมัครสมาชิก
+registration.header: สมัครสมาชิก
+security.login.username: 'ชื่อใช้งาน หรือ อีเมล'
+security.login.password: รหัสผ่าน
+form.email: อีเมล์
+form.password: รหัสผ่าน
+form.password_confirmation: ยืนยันรหัสผ่าน

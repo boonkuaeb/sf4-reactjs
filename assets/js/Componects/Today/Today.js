@@ -1,6 +1,8 @@
+"use strict";
 import React, { Component } from 'react';
 import './Today.css'
 import axios from 'axios'
+import T from 'i18n-react';
 
 class Today extends Component {
     // Adds a class constructor that assigns the initial state values:
@@ -31,7 +33,7 @@ class Today extends Component {
         return (
 
             <div className="today--section container">
-                <h2>Current Price</h2>
+                <h2>{T.translate("common_current_price")}</h2>
                 <div className="columns today--section__box">
                     <div className="column btc--section">
                         <h5>${this.state.btcprice}</h5>

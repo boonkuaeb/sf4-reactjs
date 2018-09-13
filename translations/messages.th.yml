@@ -1,0 +1,12 @@
+lastName: นามสกุล
+firstName: ชื่อ
+welcome: 'สวัสดีคุณ {username} , ข้อมูลราคาค่าเงินของ BTC, ETH และ LTC แบบเรียวไทม์'
+common_register: สมัครสมาชิก
+common_login: เข้าสู่ระบบ
+'First name': ชื่อ
+'Last name': นามสกุล
+common_logout: ออกจากระบบ
+common_current_price: ราคาปัญจุบัน
+common_history_price: ราคาย้อนหลัง
+common_history_price_day: '{part_days} วัน'
+

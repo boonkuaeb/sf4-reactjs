@@ -1,0 +1,12 @@
+welcome: "Hi {username} , This is a realtime price information about \nBTC, ETH and LTC."
+lastName: false
+firstName: false
+'First name': 'First name'
+'Last name': 'Last name'
+common_register: Register
+common_login: Login
+common_logout: Logout
+common_current_price: Current Price
+common_history_price: History Price
+common_history_price_day: 'Past {part_days} days'
+

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,15 +23,21 @@
                         <a class="navbar-item navbar-home" href="{{ path('homepage') }}">Price Info</a>
                     </span>
                 </div>
+                <div class="navbar-end">
+                    <ul class="lang-menu">
+                        <li><a {% if app.request.getLocale() == 'en' %} class="userLanguage" {% endif %} alt="en" href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>
+                        <li><a {% if app.request.getLocale() == 'th' %} class="userLanguage" {% endif %} alt="th" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'th'})) }}">ไทย</a></li>
+                    </ul>
+                </div>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <div class="navbar-end">
-                    <a class="navbar-item" href="{{ path('fos_user_security_logout') }}" rel="noopener noreferrer">Logout</a>
+                    <a class="navbar-item" href="{{ path('fos_user_security_logout') }}" rel="noopener noreferrer">{{ 'common_logout'|trans }}</a>
                 </div>
                 {% else %}
                     <div class="navbar-end">
-                        <a class="navbar-item" href="{{ path('fos_user_registration_register') }}" rel="noopener noreferrer">Register</a>
+                        <a class="navbar-item" href="{{ path('fos_user_registration_register') }}" rel="noopener noreferrer">{{ 'common_register'|trans }}</a>
 
-                        <a class="navbar-item" href="{{ path('fos_user_security_login') }}" rel="noopener noreferrer">Login</a>
+                        <a class="navbar-item" href="{{ path('fos_user_security_login') }}" rel="noopener noreferrer">{{ 'common_login'|trans }}</a>
                     </div>
 
                 {% endif %}
