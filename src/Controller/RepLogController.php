@@ -41,6 +41,7 @@ class RepLogController extends BaseController
 
     /**
      * @Route("/reps/{id}", name="rep_log_delete", methods={"DELETE"})
+     *
      */
     public function deleteRepLogAction(RepLog $repLog)
     {
@@ -53,7 +54,7 @@ class RepLogController extends BaseController
     }
 
     /**
-     * @Route("/reps", name="rep_log_new", options={"expose" = true}, methods={"POST"})
+     * @Route("/reps-post", name="rep_log_new", options={"expose" = true}, methods={"POST"})
      */
     public function newRepLogAction(Request $request)
     {
