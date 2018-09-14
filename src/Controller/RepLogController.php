@@ -5,7 +5,8 @@ namespace App\Controller;
 use App\Entity\RepLog;
 use App\Form\Type\RepLogType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -16,12 +17,11 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 class RepLogController extends BaseController
 {
     /**
-     * @Route("/reps", name="rep_log_list", options={"expose" = true}, methods={"GET"})
+     * @Route("/reps", name="rep_log_list", options={"expose" = true})
+     * @Method("GET")
      */
     public function getRepLogsAction()
     {
-
-
         $models = $this->findAllUsersRepLogModels();
 
         return $this->createApiResponse([
@@ -30,7 +30,8 @@ class RepLogController extends BaseController
     }
 
     /**
-     * @Route("/reps/{id}", name="rep_log_get", methods={"GET"})
+     * @Route("/reps/{id}", name="rep_log_get")
+     * @Method("GET")
      */
     public function getRepLogAction(RepLog $repLog)
     {
@@ -40,8 +41,8 @@ class RepLogController extends BaseController
     }
 
     /**
-     * @Route("/reps/{id}", name="rep_log_delete", methods={"DELETE"})
-     *
+     * @Route("/reps/{id}", name="rep_log_delete")
+     * @Method("DELETE")
      */
     public function deleteRepLogAction(RepLog $repLog)
     {
@@ -54,15 +55,13 @@ class RepLogController extends BaseController
     }
 
     /**
-     * @Route("/reps-post", name="rep_log_new", options={"expose" = true}, methods={"POST"})
+     * @Route("/reps-rep_log_new", name="rep_log_new", options={"expose" = true})
+     * @Method("POST")
      */
     public function newRepLogAction(Request $request)
     {
-
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
         $data = json_decode($request->getContent(), true);
-
-
 
         if ($data === null) {
             throw new BadRequestHttpException('Invalid JSON');
@@ -71,6 +70,7 @@ class RepLogController extends BaseController
         $form = $this->createForm(RepLogType::class, null, [
             'csrf_protection' => false,
         ]);
+
         $form->submit($data);
         if (!$form->isValid()) {
             $errors = $this->getErrorsFromForm($form);
@@ -87,6 +87,7 @@ class RepLogController extends BaseController
         $em->persist($repLog);
         $em->flush();
 
+
         $apiModel = $this->createRepLogApiModel($repLog);
 
         $response = $this->createApiResponse($apiModel);
@@ -95,6 +96,7 @@ class RepLogController extends BaseController
             'Location',
             $this->generateUrl('rep_log_get', ['id' => $repLog->getId()])
         );
+
 
         return $response;
     }
