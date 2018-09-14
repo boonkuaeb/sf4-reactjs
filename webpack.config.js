@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 Encore
 
     // Env
-    .configureRuntimeEnvironment('dev')
+    .configureRuntimeEnvironment("dev")
     // the project directory where all compiled assets will be stored
     .setOutputPath('public/build/')
 
