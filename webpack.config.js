@@ -8,6 +8,8 @@ Encore
 
     // Env
     .configureRuntimeEnvironment("dev")
+
+
     // the project directory where all compiled assets will be stored
     .setOutputPath('public/build/')
 
