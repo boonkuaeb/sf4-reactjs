@@ -32,6 +32,47 @@ class LiftController extends BaseController
      */
     private function getLeaders(RepLogRepository $replogRepo, UserRepository $userRepo)
     {
+        $leaderboard = $this->getLeadersCache($replogRepo, $userRepo);
+
+        return $leaderboard;
+    }
+
+
+    /**
+     * @return object|\Predis\Client
+     */
+    private function getRedisClient()
+    {
+        return $this->get('snc_redis.default');
+    }
+
+    /**
+     * @param RepLogRepository $replogRepo
+     * @param UserRepository $userRepo
+     * @return array
+     */
+    private function getLeadersCache(RepLogRepository $replogRepo, UserRepository $userRepo): array
+    {
+
+        $key = 'getleaderscache_21111';
+        if (!$this->getRedisClient()->exists($key)) {
+            $leaderboard = $this->getLeadersDB($replogRepo, $userRepo);
+
+            $this->getRedisClient()->set($key,serialize($leaderboard));
+            $this->getRedisClient()->expire($key,20);
+        }
+        $leaderboard = unserialize($this->getRedisClient()->get($key));
+
+        return $leaderboard;
+    }
+
+    /**
+     * @param RepLogRepository $replogRepo
+     * @param UserRepository $userRepo
+     * @return array
+     */
+    private function getLeadersDB(RepLogRepository $replogRepo, UserRepository $userRepo): array
+    {
         $leaderboardDetails = $replogRepo->getLeaderboardDetails();
 
         $leaderboard = array();
@@ -44,10 +85,9 @@ class LiftController extends BaseController
             $leaderboard[] = array(
                 'username' => $user->getUsername(),
                 'weight' => $details['weightSum'],
-                'in_cats' => number_format($details['weightSum']/RepLog::WEIGHT_FAT_CAT),
+                'in_cats' => number_format($details['weightSum'] / RepLog::WEIGHT_FAT_CAT),
             );
         }
-
         return $leaderboard;
     }
 }
