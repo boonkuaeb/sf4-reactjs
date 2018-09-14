@@ -137,21 +137,19 @@ class RepLogApp {
         return new Promise((resolve, reject) => {
             const url = Routing.generate('rep_log_new');
 
-
-            console.log(url);
-
             $.ajax({
                 url,
                 method: 'POST',
                 data: JSON.stringify(data)
             }).then((data, textStatus, jqXHR) => {
-                $.ajax({
-                    // url: jqXHR.getResponseHeader('Location')
-                    url: data.links._self
-                }).then((data) => {
-                    // we're finally done!
-                    resolve(data);
-                });
+                // $.ajax({
+                //     // url: jqXHR.getResponseHeader('Location')
+                //     url: data.links._self
+                // }).then((data) => {
+                //     // we're finally done!
+                //     resolve(data);
+                // });
+                resolve(data);
             }).catch((jqXHR) => {
                 const errorData = JSON.parse(jqXHR.responseText);
 
